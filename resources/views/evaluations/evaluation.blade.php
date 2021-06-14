@@ -2,27 +2,26 @@
 
 
 <head>
-
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta content="" name="description" />
     <meta content="webthemez" name="author" />
     <title>Evaluation System | Home</title>
     <!-- Bootstrap Styles-->
-    <link href="assets/css/bootstrap.css" rel="stylesheet" />
+    <link href="../assets/css/bootstrap.css" rel="stylesheet" />
     <!-- <link href="{{ url('/css/bootstrap.css') }}" rel="stylesheet"> -->
     <!-- FontAwesome Styles-->
-    <link href="assets/css/font-awesome.css" rel="stylesheet" />
+    <link href="../assets/css/font-awesome.css" rel="stylesheet" />
     <!-- <link href="{{ url('/css/font-awesome.css') }}" rel="stylesheet"> -->
     <!-- Morris Chart Styles-->
     <link href="assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
     <link href="{{ url('/css/morris-0.4.3.min.css') }}" rel="stylesheet">
     <!-- Custom Styles-->
-    <link href="assets/css/custom-styles.css" rel="stylesheet" />
+    <link href="../assets/css/custom-styles.css" rel="stylesheet" />
     <link href="{{ url('/css/custom-styles.css') }}" rel="stylesheet">
     <!-- Google Fonts-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-    <link rel="stylesheet" href="assets/js/Lightweight-Chart/cssCharts.css">
+    <link rel="stylesheet" href="../assets/js/Lightweight-Chart/cssCharts.css">
 </head>
 
 <body>
@@ -415,363 +414,201 @@
 						<ol class="breadcrumb">
 					  <li><a href="#">Home</a></li>
 					  <li><a href="#">Dashboard</a></li>
-					  <li class="active">Data</li>
+					  <li class="active">Evaluation</li>
 					</ol>
 
 		</div>
-            <div id="page-inner">
-
-                <!-- /. ROW  -->
-
-                <div class="row">
-                    <div class="col-md-3 col-sm-12 col-xs-12">
-					<div class="board">
-                        <div class="panel panel-primary">
-						<div class="number">
-							<h3>
-								<h3>44,023</h3>
-								<small>Daily Visits</small>
-							</h3>
-						</div>
-						<div class="icon">
-						   <i class="fa fa-eye fa-5x red"></i>
-						</div>
-
-                        </div>
-						</div>
-                    </div>
-
-					       <div class="col-md-3 col-sm-12 col-xs-12">
-					<div class="board">
-                        <div class="panel panel-primary">
-						<div class="number">
-							<h3>
-								<h3>32,850</h3>
-								<small>Sales</small>
-							</h3>
-						</div>
-						<div class="icon">
-						   <i class="fa fa-shopping-cart fa-5x blue"></i>
-						</div>
-
-                        </div>
-						</div>
-                    </div>
-
-					       <div class="col-md-3 col-sm-12 col-xs-12">
-					<div class="board">
-                        <div class="panel panel-primary">
-						<div class="number">
-							<h3>
-								<h3>56,150</h3>
-								<small>Comments</small>
-							</h3>
-						</div>
-						<div class="icon">
-						   <i class="fa fa-comments fa-5x green"></i>
-						</div>
-
-                        </div>
-						</div>
-                    </div>
-
-					       <div class="col-md-3 col-sm-12 col-xs-12">
-					<div class="board">
-                        <div class="panel panel-primary">
-						<div class="number">
-							<h3>
-								<h3>89,645</h3>
-								<small>Daily Profits</small>
-							</h3>
-						</div>
-						<div class="icon">
-						   <i class="fa fa-user fa-5x yellow"></i>
-						</div>
-
-                        </div>
-						</div>
-                    </div>
-
-                </div>
-				     <div class="row">
-                        <div class="col-sm-6 col-xs-12">
-                            <div class="panel panel-default chartJs">
-                                <div class="panel-heading">
-                                    <div class="card-title">
-                                        <div class="title">Line Chart</div>
-                                    </div>
-                                </div>
-                                <div class="panel-body">
-                                    <canvas id="line-chart" class="chart"></canvas>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-xs-12">
-                            <div class="panel panel-default chartJs">
-                                <div class="panel-heading">
-                                    <div class="card-title">
-                                        <div class="title">Bar Chart</div>
-                                    </div>
-                                </div>
-                                <div class="panel-body">
-                                    <canvas id="bar-chart" class="chart"></canvas>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-		<div class="row">
-			<div class="col-xs-6 col-md-3">
-				<div class="panel panel-default">
-					<div class="panel-body easypiechart-panel">
-						<h4>Profit</h4>
-						<div class="easypiechart" id="easypiechart-blue" data-percent="82" ><span class="percent">82%</span>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-xs-6 col-md-3">
-				<div class="panel panel-default">
-					<div class="panel-body easypiechart-panel">
-						<h4>Sales</h4>
-						<div class="easypiechart" id="easypiechart-orange" data-percent="55" ><span class="percent">55%</span>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-xs-6 col-md-3">
-				<div class="panel panel-default">
-					<div class="panel-body easypiechart-panel">
-						<h4>Customers</h4>
-						<div class="easypiechart" id="easypiechart-teal" data-percent="84" ><span class="percent">84%</span>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-xs-6 col-md-3">
-				<div class="panel panel-default">
-					<div class="panel-body easypiechart-panel">
-						<h4>No. of Visits</h4>
-						<div class="easypiechart" id="easypiechart-red" data-percent="46" ><span class="percent">46%</span>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div><!--/.row-->
-
-
-				<div class="row">
-				<div class="col-md-5">
-						<div class="panel panel-default">
-						<div class="panel-heading">
-							Line Chart
-						</div>
-						<div class="panel-body">
-							<div id="morris-line-chart"></div>
-						</div>
-					</div>
-					</div>
-
-						<div class="col-md-7">
-					<div class="panel panel-default">
-					<div class="panel-heading">
-                                Bar Chart Example
-                            </div>
-                            <div class="panel-body">
-                                <div id="morris-bar-chart"></div>
-                            </div>
-
-					</div>
-					</div>
-
-				</div>
-
-
-
-                <div class="row">
-                    <div class="col-md-9 col-sm-12 col-xs-12">
-                        <div class="panel panel-default">
-							<div class="panel-heading">
-							Area Chart
-						</div>
-						<div class="panel-body">
-							<div id="morris-area-chart"></div>
-						</div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-12 col-xs-12">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                Donut Chart Example
-                            </div>
-                            <div class="panel-body">
-                                <div id="morris-donut-chart"></div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-				<div class="row">
-				<div class="col-md-12">
-
-					</div>
-				</div>
-                <!-- /. ROW  -->
 
 
 
 
+        <div id="page-inner">
+            <div class="row">
+            <div class="form-group">
 
-                <div class="row">
-                    <div class="col-md-4 col-sm-12 col-xs-12">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                Tasks Panel
-                            </div>
-                            <div class="panel-body">
-                                <div class="list-group">
-
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge">7 minutes ago</span>
-                                        <i class="fa fa-fw fa-comment"></i> Commented on a post
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge">16 minutes ago</span>
-                                        <i class="fa fa-fw fa-truck"></i> Order 392 shipped
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge">36 minutes ago</span>
-                                        <i class="fa fa-fw fa-globe"></i> Invoice 653 has paid
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge">1 hour ago</span>
-                                        <i class="fa fa-fw fa-user"></i> A new user has been added
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge">1.23 hour ago</span>
-                                        <i class="fa fa-fw fa-user"></i> A new user has added
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge">yesterday</span>
-                                        <i class="fa fa-fw fa-globe"></i> Saved the world
-                                    </a>
-                                </div>
-                                <div class="text-right">
-                                    <a href="#">More Tasks <i class="fa fa-arrow-circle-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="col-md-8 col-sm-12 col-xs-12">
-
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                Responsive Table Example
-                            </div>
-                            <div class="panel-body">
-                                <div class="table-responsive">
-                                    <table class="table table-striped table-bordered table-hover">
-                                        <thead>
-                                            <tr>
-                                                <th>S No.</th>
-                                                <th>First Name</th>
-                                                <th>Last Name</th>
-                                                <th>User Name</th>
-                                                <th>Email ID.</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>John</td>
-                                                <td>Doe</td>
-                                                <td>John15482</td>
-                                                <td>name@site.com</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>Kimsila</td>
-                                                <td>Marriye</td>
-                                                <td>Kim1425</td>
-                                                <td>name@site.com</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>Rossye</td>
-                                                <td>Nermal</td>
-                                                <td>Rossy1245</td>
-                                                <td>name@site.com</td>
-                                            </tr>
-                                            <tr>
-                                                <td>4</td>
-                                                <td>Richard</td>
-                                                <td>Orieal</td>
-                                                <td>Rich5685</td>
-                                                <td>name@site.com</td>
-                                            </tr>
-                                            <tr>
-                                                <td>5</td>
-                                                <td>Jacob</td>
-                                                <td>Hielsar</td>
-                                                <td>Jac4587</td>
-                                                <td>name@site.com</td>
-                                            </tr>
-                                            <tr>
-                                                <td>6</td>
-                                                <td>Wrapel</td>
-                                                <td>Dere</td>
-                                                <td>Wrap4585</td>
-                                                <td>name@site.com</td>
-                                            </tr>
-
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-                <!-- /. ROW  -->
+            <div class="results">
+                        @if(Session::has('fail'))
+            <div class="alert alert-danger alert-dismissible " role="alert">
 
 
-				<footer><p>All right reserved. Template by: <a href="http://webthemez.com">WebThemez.com</a></p>
-
-
-				</footer>
+            {{ Session::get('fail') }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
             </div>
-            <!-- /. PAGE INNER  -->
+             </div>
+
+
+            @endif
+            @if(Session::has('success'))
+            <div class="alert alert-success alert-dismissible " role="alert">
+
+
+            {{ Session::get('success') }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+             </div>
+
+
+            @endif
+
+            <form action="{{route('evaluations.result')}}" method="post">
+            @csrf
+                                        <div id="container">
+
+
+
+
+
+                @foreach($questionnaires as $question)
+
+                                        <?php
+                                            $iu=  $question->question_type_id;
+                                               // echo "$iu";
+                                            // $query = "SELECT * FROM courses where id=$iu ";
+                                            // $do =mysqli_query($conn, $query);
+                                            // while($row = mysqli_fetch_array($do)){
+                                            //     echo '<td value="'.$row['id'].'">'.$row['course_name'].'</td>';
+                                            // }
+
+                                            ?>
+
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="panel panel-default">
+                            <div class="panel-heading">
+                                    <div class="card-title">
+                                    <label for="">{{$question->question}}:</label>
+                                        <?php
+                                            // $mine = $question->unit_type;
+                                            // if($mine=='All units'){
+
+                                            $que= $question->question_type_id;
+                                            if($que==1){
+                                                echo "<textarea class='form-control' id='shortAnswer' name='answer' style='' required></textarea>";
+                                            }
+                                            elseif($que==2){
+                                                echo"<textarea rows='6' name='answer' id='paragraph' class='form-control' required></textarea>";
+                                            }elseif($que==3){
+
+
+                                                $run = $question->value_id;
+                                                $myArray = explode(',', $run);
+                                                if (is_array($myArray) || is_object($myArray)){
+                                                foreach ($myArray as $item)  {
+                                                    echo "<br>";
+                                                    echo "<input type='radio' name='answer' id='option' required> $item ";
+                                                }
+                                            }
+
+
+
+                                        // elseif($mine=='Practical Units'){
+                                        //     $que= $question->question_type_id;
+                                        //     if($que==1){
+                                        //         echo "<textarea class='form-control' id='shortAnswer' name='answer' style='' required></textarea>";
+                                        //     }
+                                        //     elseif($que==2){
+                                        //         echo"<textarea rows='6' name='answer' id='paragraph' class='form-control' required></textarea>";
+                                        //     }elseif($que==3){
+
+
+                                        //         $run = $question->value_id;
+                                        //         $myArray = explode(',', $run);
+                                        //         if (is_array($myArray) || is_object($myArray)){
+                                        //         foreach ($myArray as $item)  {
+                                        //             echo "<br>";
+                                        //             echo "<input type='radio' name='answer' id='option' required> $item ";
+                                        //         }
+                                        //     }
+                                        // }
+
+                                        // elseif($mine=='Online Units'){
+                                        //     $que= $question->question_type_id;
+                                        //     if($que==1){
+                                        //         echo "<textarea class='form-control' id='shortAnswer' name='answer' style='' required></textarea>";
+                                        //     }
+                                        //     elseif($que==2){
+                                        //         echo"<textarea rows='6' name='answer' id='paragraph' class='form-control' required></textarea>";
+                                        //     }elseif($que==3){
+
+
+                                        //         $run = $question->value_id;
+                                        //         $myArray = explode(',', $run);
+                                        //         if (is_array($myArray) || is_object($myArray)){
+                                        //         foreach ($myArray as $item)  {
+                                        //             echo "<br>";
+                                        //             echo "<input type='radio' name='answer' id='option' required> $item ";
+                                        //         }
+                                        //     }
+                                        // }
+                                               //  echo "$run";
+                                                //$str_arr = preg_split ("/\,/", $run);
+                                               //  $str_arr = explode (",", $run);
+                                                //$myArray = explode(',', $run);
+                                              //  while($str_arr > 0){
+
+                                            //    }
+                                               // echo "$str_arr";
+                                              // @foreach($str_arr as $item)
+                                            // echo" <input type='radio' class='form-control'>  ";
+                                              // @endforeach
+                                            }
+                                           // $r=$str_arr;
+
+                                        ?>
+
+
+
+
+
+
+
+                                    </div>
+
+                             </div>
+                             </div>
+
+                        </div>
+                         </div>
+                        @endforeach
+
+                     <input type="submit" class="btn btn-info" value="Submit">
+
+                </div>
+
+            </div>
+            </form>
         </div>
-        <!-- /. PAGE WRAPPER  -->
     </div>
-    <!-- /. WRAPPER  -->
-    <!-- JS Scripts-->
-    <!-- jQuery Js -->
-    <script src="assets/js/jquery-1.10.2.js"></script>
+    <script src="../assets/js/jquery-1.10.2.js"></script>
     <!-- Bootstrap Js -->
-    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="../assets/js/bootstrap.min.js"></script>
 
     <!-- Metis Menu Js -->
-    <script src="assets/js/jquery.metisMenu.js"></script>
+    <script src="../assets/js/jquery.metisMenu.js"></script>
     <!-- Morris Chart Js -->
-    <script src="assets/js/morris/raphael-2.1.0.min.js"></script>
-    <script src="assets/js/morris/morris.js"></script>
-
-
-	<script src="assets/js/easypiechart.js"></script>
-	<script src="assets/js/easypiechart-data.js"></script>
-
-	 <script src="assets/js/Lightweight-Chart/jquery.chart.js"></script>
+    <script src="../assets/js/morris/raphael-2.1.0.min.js"></script>
 
     <!-- Custom Js -->
-    <script src="assets/js/custom-scripts.js"></script>
+    <script src="../assets/js/custom-scripts.js"></script>
 
 
     <!-- Chart Js -->
-    <script type="text/javascript" src="assets/js/Chart.min.js"></script>
-    <script type="text/javascript" src="assets/js/chartjs.js"></script>
+    <script type="text/javascript" src="../assets/js/Chart.min.js"></script>
+    <script type="text/javascript" src="../assets/js/chartjs.js"></script>
+    <script type="text/javascript">
 
-</body>
+             var names = '<?php echo $run; ?>';
+             var nameArr = names.split(',');
+             //console.log(nameArr);
 
+
+             </script>
+
+
+
+    </body>
 </html>

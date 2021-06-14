@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUnitsTable extends Migration
+class CreateTeachingModesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class CreateUnitsTable extends Migration
      */
     public function up()
     {
-        Schema::create('units', function (Blueprint $table) {
+        Schema::create('teaching_modes', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('course_id')->constrained('courses');
-            $table->foreignId('lecturer_id')->constrained('lecturers');
-            $table->foreignId('mode_id')->constrained('teaching_modes');
+            $table->text('mode');
             $table->timestamps();
         });
     }
@@ -29,6 +27,6 @@ class CreateUnitsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('units');
+        Schema::dropIfExists('teaching_modes');
     }
 }

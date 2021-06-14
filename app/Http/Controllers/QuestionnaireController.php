@@ -13,7 +13,7 @@ use App\Models\QuestionType;
 
 class QuestionnaireController extends Controller
 {
-    
+
 function add_questionnaire(){
     $question_values = QuestionValues::all();
     $question_types = QuestionType::all();
@@ -22,26 +22,30 @@ function add_questionnaire(){
 
 
     function questionnaire(Request $request){
-        
+
         $request->validate([
-            
+
             'question'=>'required',
-            'question_type_id'=>'required',
-            'value_id'=>'required',
-          
+            'option',
+            'first',
+            'second',
+            'third',
+            'fourth',
+            // 'value_id'=>'required',
+
        ]);
         if(!$request){
             return back()->with('fail', 'Question already registred');
-   
-    
+
+
 
                $query = DB::table('questionnaires')->insert([
-                    'question' => $request->question,                  
+                    'question' => $request->question,
                     'question_type_id' => $request->question_type_id,
                     'value_id' => $request->value_id,
-                 
+
                   //  $question->options = json_encode($request->value_id)//json_encode
-                  
+
                ]);
 
         if($query){
@@ -51,7 +55,7 @@ function add_questionnaire(){
         }
 
     }
-    
+
 }
 
 

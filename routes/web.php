@@ -9,6 +9,7 @@ use App\Models\Department;
 use App\Models\Lecturer;
 use App\Models\Unit;
 use App\Models\competency;
+use App\Models\TeachingMode;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\LecturerController;
@@ -86,3 +87,12 @@ Route::get('add_questionnaire', [QuestionnaireController::class, 'add_questionna
 // Route::get('view_unit', [UnitsController::class, 'view_unit'])->name('units.view_unit');
 Route::post('questionnaire', [QuestionnaireController::class, 'questionnaire'])->name('questionnaires.questionnaire');
 //Route::get('delete_unit/{id}', [UnitsController::class, 'delete_unit']);
+
+
+
+// ---------------------Evaluation Routes---------------------------
+Route::get('add_evaluation', [UnitsController::class, 'view_evaluation'])->name('evaluations.add_evaluation');
+ Route::get('view_question', [UnitsController::class, 'view_question'])->name('evaluations.view_question');
+//Route::post('evaluation', [EvaluationController::class, 'evaluation'])->name('evaluations.evaluation');
+Route::get('evaluate/{id}', [UnitsController::class, 'evaluate']);
+Route::post('result', [UnitsController::class, 'result'])->name('evaluations.result');

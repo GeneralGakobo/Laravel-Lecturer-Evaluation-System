@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 
 
@@ -19,9 +20,13 @@
     <!-- Custom Styles-->
     <link href="assets/css/custom-styles.css" rel="stylesheet" />
     <link href="{{ url('/css/custom-styles.css') }}" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+
     <!-- Google Fonts-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-    <link rel="stylesheet" href="assets/js/Lightweight-Chart/cssCharts.css"> 
+    <link rel="stylesheet" href="assets/js/Lightweight-Chart/cssCharts.css">
 
     <style>
     #type_item:hover{
@@ -41,9 +46,9 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="index.html"><strong><i class="icon fa fa-user"></i> Evaluation System</strong></a>
-				
+
 		<div id="sideNav" href="">
-		<i class="fa fa-bars icon"></i> 
+		<i class="fa fa-bars icon"></i>
 		</div>
             </div>
 
@@ -259,9 +264,9 @@
         <!--/. NAV TOP  -->
         <nav class="navbar-default navbar-side">
             <div class="sidebar-collapse">
-                
+
                 <ul class="nav" id="main-menu" style="height:auto">
- 
+
 
                     <li>
                         <a href="#"><i class="fa fa-sitemap"></i> Settings<span class="fa arrow"></span></a>
@@ -269,7 +274,7 @@
                             <li>
                                 <a href="{{ route('dashboard.regsession') }}">Register Sessions</a>
                             </li>
-                           
+
                             <li>
                                 <a href="#">Add Schools</a>
                             </li>
@@ -295,7 +300,7 @@
                                 <a href="#">View Roles</a>
                             </li>
 
-                        
+
 
 
 
@@ -360,7 +365,7 @@
                                 <a href="#">View Courses</a>
                             </li>
                             <li>
-                              
+
                         </ul>
                     </li>
 
@@ -374,7 +379,7 @@
                                 <a href="#">View Units</a>
                             </li>
                             <li>
-                              
+
                         </ul>
                     </li>
 
@@ -412,9 +417,9 @@
 
         </nav>
         <!-- /. NAV SIDE  -->
-      
+
 		<div id="page-wrapper">
-		  <div class="header"> 
+		  <div class="header">
                         <h1 class="page-header">
                             Dashboard <small>Create Questionnaire</small>
                         </h1>
@@ -422,13 +427,13 @@
 					  <li><a href="#">Home</a></li>
 					  <li><a href="#">Dashboard</a></li>
 					  <li class="active">Create Questionnaire</li>
-					</ol> 
-									
-		</div>
-        
+					</ol>
 
-        <div id="page-inner"> 
-                       
+		</div>
+
+
+        <div id="page-inner">
+
                     <div class="row">
                         <div class="col-xs-12">
                             <div class="panel panel-default">
@@ -438,7 +443,7 @@
                                     </div>
                                 </div>
                                 <div class="panel-body">
-                                
+
                                     <div class="results">
                                     @if(Session::get('fail'))
                                         <div class="alert alert-danger">
@@ -453,12 +458,11 @@
                                     </div>
 
 
-                                      
-                                    <td><a href="" data-toggle="modal" data-target='#types_modal'><button class="btn btn-info"><i class="fa fa-plus" style="color:blue; font-size:27px;"></i>Add Question</button></a></td>
-                                        </div>
-                                        </div> 
 
-<div class="yy">
+                                     </div>
+                                        </div>
+
+
 
  <div class="modal fade" id="types_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
    <div class="modal-dialog" role="document">
@@ -469,7 +473,7 @@
            <span aria-hidden="true"  style="padding-bottom:40px; size:30px; zoom:2;">&times;</span>
          </button>
        </div>
-       <form id="forma" action="{{ route('questionnaires.questionnaire') }}" method="post">
+       <form id="forma" action="tour.php" method="post">
                                     @csrf
        <div class="modal-body">
          <div class="list-group">
@@ -481,27 +485,42 @@
      </div>
    </div>
  </div>
-                                        </div>
-                                 
+
+
                                    <!-- <form id="question_form"> -->
                                     <div class="form-group">
-                                        <div id="container">
-                                        </div>
+
+                                      <div id="container">
+
+                                      </div>
                                         <br>
                                         <br>
-                                        <br>
-                                        <input id="submit-btn" type="button" style="margin-left:30px" name="save" class="btn btn-info" value="Submit">
-                                        <div id="msg">
+                                        <td><a href="" data-toggle="modal" data-target='#types_modal'><button class="btn btn-info"><i class="fa fa-plus" style="color:blue; font-size:27px;"></i>Add Question</button></a></td>
+
+
+                                        <input id="submit-btn" type="submit" style="float:right;font-size:22px;" name="tablee" class="btn btn-info" value="Submit">
+                                        <!-- <div id="msg">
                                         <pre></pre>
-                                        </div>
-                                 
-                                  </form>
+                                        </div> -->
+
+                                </form>
                                 </div>
                             </div>
                         </div>
                     </div>
-                   
-               
+
+                    <?php
+                          $conn = mysqli_connect("localhost","root","","auth")or die(mysqli_error());
+                         $query = "SELECT * FROM units";
+                         $do =mysqli_query($conn, $query);
+                            while($row = mysqli_fetch_array($do)){
+                              $to = "<option value='".$row['id']."'>".$row['id']."</option>";
+                              echo"$to";
+                            }
+
+
+
+                         ?>
 			<footer><p>All right reserved. Template by: <a href="http://webthemez.com">WebThemez.com</a></p></footer>
 			</div>
              <!-- /. PAGE INNER  -->
@@ -509,28 +528,38 @@
          <!-- /. PAGE WRAPPER  -->
         </div>
     </div>
-
+    </div>
+    </div>
+</div>
+</div>
+</div>
 
    <!-- /. WRAPPER  -->
     <!-- JS Scripts-->
     <!-- jQuery Js -->
     <script src="assets/js/jquery-1.10.2.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script> -->
     <!-- Bootstrap Js -->
     <script src="assets/js/bootstrap.min.js"></script>
-	 
+
     <!-- Metis Menu Js -->
     <script src="assets/js/jquery.metisMenu.js"></script>
-  
+
     <!-- Custom Js -->
-    <script src="assets/js/custom-scripts.js"></script>      
+    <script src="assets/js/custom-scripts.js"></script>
     <!-- Chart Js -->
-    <script type="text/javascript" src="assets/js/Chart.min.js"></script>  
-    <script type="text/javascript" src="assets/js/chartjs.js"></script> 
+    <script type="text/javascript" src="assets/js/Chart.min.js"></script>
+    <script type="text/javascript" src="assets/js/chartjs.js"></script>
 
 
-    <script>
-    
+
+
+    <script type="text/javascript">
+
+
     function onTypeClicked(type){
+
+        var id = "öption_container"+Math.random().toString(36).substr(2, 9);
         $("#types_modal").modal('hide')
         var div = '<div>'
         if(type.id==1){
@@ -543,7 +572,18 @@
                                     <div class="card-title">\
             <label>Enter your question</label>\
             <div class="panel-body">\
-            <input class="form-control" id="a" name="question" style="width:500px;" type="text" placeholder="Type your question.."></input>\
+            <input class="form-conrol" id="a" name="question" style="width:600px; margin-right:50px;" type="text" placeholder="Type your question.."></input>\
+            <div class="multipleSelection" style="float:right;top:10px;">\
+            <h3 style="font-width:bold;margin-bottom:20px;">Select Units</h3>\
+           <label for="first" style="display:block;">\
+                    <input type="checkbox" name="first" id="first">  All units</label>\
+                <label for="second"style="display:block">\
+                    <input type="checkbox" name="second" id="second">  Practical Units</label>\
+                <label for="third"style="display:block">\
+                    <input type="checkbox" name="third" id="third" >  Theory units</label>\
+                <label for="fourth" style="display:block">\
+                    <input type="checkbox" name="fourth" id="fourth" >  Online Units</label>\
+            </div>\
             <p style="width:500px;"><i class="fas fa-paragraph"></i>_____________________short answers_______________________</p>\
             <p>____________________________________________________</p>\
             </div>\
@@ -551,9 +591,11 @@
             </div>\
             </div>\
             </div>\
+            </div>\
             </div>'
         }else if(type.id==2){
-            div = div+'<div>\
+            div = div+
+            '<div>\
                <div class="row">\
                         <div class="col-xs-12">\
                             <div class="panel panel-default">\
@@ -562,6 +604,17 @@
             <label>Enter your question</label>\
             <div class="panel-body">\
             <input class="form-control" id="b" name="question" style="width:500px;" type="text" placeholder="Type your question.."></input>\
+            <div class="multipleSelection"style="float:right;top:10px;>\
+            <h3 style="font-width:bold; margin-bottom:20px;">Select Units</h3>\
+             <label for="first" style="display:block">\
+                    <input type="checkbox" name="first" id="first">  All units</label>\
+                <label for="second"style="display:block">\
+                    <input type="checkbox" name="second" id="second">  Practical Units</label>\
+                <label for="third"style="display:block">\
+                    <input type="checkbox" name="third" id="third" >  Theory units</label>\
+                <label for="fourth" style="display:block">\
+                    <input type="checkbox" name="fourth" id="fourth" >  Online Units</label>\
+            </div>\
             <p style="width:500px;">_____________________Long answer texts_______________________</p>\
             <p>_______________________________________________________________</p>\
             <p>_______________________________________________________________</p>\
@@ -570,9 +623,11 @@
             </div>\
             </div>\
             </div>\
+            </div>\
             </div>'
         }else if(type.id==3){
-            div = div+'<div>\
+            div = div+
+            '<div>\
                <div class="row">\
                         <div class="col-xs-12">\
                             <div class="panel panel-default">\
@@ -581,13 +636,24 @@
             <label>Enter your question</label>\
             <div class="panel-body">\
             <input class="form-control" style="width:500px;" id="c" name="question" type="text" placeholder="Type your question.."></input>\
-            <div id="option_container">\
+            <div class="multipleSelection" style="float:right;top:10px;">\
+            <h3 style="font-width:bold;margin-bottom:20px;">Select Units</h3>\
+           <label for="first" style="display:block;">\
+                    <input type="checkbox" name="first" id="first">  All units</label>\
+                <label for="second"style="display:block">\
+                    <input type="checkbox" name="second" id="second">  Practical Units</label>\
+                <label for="third"style="display:block">\
+                    <input type="checkbox" name="third" id="third" >  Theory units</label>\
+                <label for="fourth" style="display:block">\
+                    <input type="checkbox" name="fourth" id="fourth" >  Online Units</label>\
+            </div>\ <div id="option_container">\
             <label style="margin-top:10px">Option 1</label>\
-             <input class="form-control" style="width:300px; margin:10px; margin-top:4px;" id="d" name="value_id"></input>\
+             <input class="form-control" style="width:300px; margin:10px; margin-top:4px;" id="d" name="option"></input>\
        <label style="margin-top:10px">Option 2</label>\
-        <input class="form-control" name="value_id" id="e" style="width:300px; margin:10px; margin-top:4px;"></input>\
+        <input class="form-control" name="option" id="e" style="width:300px; margin:10px; margin-top:4px;"></input>\
         </div>\
             <button class="btn btn-info" id="poke" style="margin-top:10px;"  onClick="onAddOption();">Add option</button>\
+            </div>\
             </div>\
             </div>\
             </div>\
@@ -597,77 +663,96 @@
             </div>'
         }
 
-          
 
-        div = div+'</div>'
+
+        div = div + "<div id='unique_id'></div>"
+        // var newRow=$("tr")
+        // var col = '<td>'+div+'</td>'
+        // newRow.append(col);
+        // $('table.question-list tbody').append(newRow);
         $('#container').append(div);
+
+
+
+
     }
-   
-   
+
+
+
+
 
     function onAddOption(){
- 
-       
-       
-      
+
+
+
+
         $('#option_container').append('<label style="margin-top:10px">Option 3</label>\
         <label id="counter" style="margin-top:10px"></label>\
-        <input class="form-control" name="value_id" id="f" style="width:300px; margin:10px; margin-top:4px;"></input>'
-       
+        <input class="form-control" name="option" id="f" style="width:300px; margin:10px; margin-top:4px;"></input>'
+
         )
-            
-       
+
+
     }
-  
 
 
- 
-    
-    // $('#submit-btn').on("click",function(e){
-    //     e.preventDefault();
-    //     var data = $("#container").children()
-    //    document.write(data);
-    // })
-    
-    </script>
 
+
+
+
+    $('#submit-btn').on("click",function(e){
+        e.preventDefault();
+        var data = $("#container").children()
+       document.write(data);
+    })
+
+</script>
+
+<script type="text/javascript">
+    var frm = $('#forma');
+
+    frm.submit(function (e) {
+
+        e.preventDefault();
+
+        $.ajax({
+            type: frm.attr('method'),
+            url: frm.attr('action'),
+            data: frm.serialize(),
+            success: function (data) {
+                console.log('Submission was successful.');
+                console.log(data);
+            },
+            error: function (data) {
+                console.log('An error occurred.');
+                console.log(data);
+            },
+        });
+    });
+</script>
 
 <script>
-        let movies = [];
-     
-        const addMovie = (ev)=>{
-            ev.preventDefault();  //to stop the form submitting
-            let movie = {
-                id: Date.now(),
-                type_item: document.getElementById('type_item').value,
-                 a: document.getElementById('a').value,
-             b: document.getElementById('b').value,
-               c: document.getElementById('c').value,
-              d: document.getElementById('d').value,
-              e: document.getElementById('e').value,
-              f: document.getElementById('f').value
-            }
-            movies.push(movie);
-            document.forms[0].reset(); // to clear the form for the next entries
-            //document.querySelector('form').reset();
 
-            //for display purposes only
-            console.warn('added' , {movies} );
-            let pre = document.querySelector('#msg pre');
-            pre.textContent = '\n' + JSON.stringify(movies, '\t', 2);
+var show = true;
 
-            //saving to localStorage
-            localStorage.setItem('MyMovieList', JSON.stringify(movies) );
-        }
-        document.addEventListener('DOMContentLoaded', ()=>{
-            document.getElementById('submit-btn').addEventListener('click', addMovie);
-        });
-    </script>
+function showCheckboxes() {
+    var checkboxes =
+        document.getElementById("checkBoxes");
+
+    if (show) {
+        checkboxes.style.display = "block";
+        show = false;
+    } else {
+        checkboxes.style.display = "none";
+        show = true;
+    }
+}
+</script>
 
 
 
     </div>
- </form>
+
 
 </body>
 

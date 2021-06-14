@@ -23,7 +23,7 @@
     <!-- Google Fonts-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <link rel="stylesheet" href="assets/js/Lightweight-Chart/cssCharts.css"> 
+    <link rel="stylesheet" href="assets/js/Lightweight-Chart/cssCharts.css">
 </head>
 
 <body>
@@ -37,9 +37,9 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="index.html"><strong><i class="icon fa fa-user"></i> Evaluation System</strong></a>
-				
+
 		<div id="sideNav" href="">
-		<i class="fa fa-bars icon"></i> 
+		<i class="fa fa-bars icon"></i>
 		</div>
             </div>
 
@@ -255,9 +255,9 @@
         <!--/. NAV TOP  -->
         <nav class="navbar-default navbar-side">
             <div class="sidebar-collapse">
-                
+
                 <ul class="nav" id="main-menu" style="height:auto">
- 
+
 
                     <li>
                         <a href="#"><i class="fa fa-sitemap"></i> Settings<span class="fa arrow"></span></a>
@@ -265,7 +265,7 @@
                             <li>
                                 <a href="{{ route('dashboard.regsession') }}">Register Sessions</a>
                             </li>
-                           
+
                             <li>
                                 <a href="#">Add Schools</a>
                             </li>
@@ -291,7 +291,7 @@
                                 <a href="#">View Roles</a>
                             </li>
 
-                        
+
 
 
 
@@ -356,7 +356,7 @@
                                 <a href="#">View Courses</a>
                             </li>
                             <li>
-                              
+
                         </ul>
                     </li>
 
@@ -370,7 +370,7 @@
                                 <a href="#">View Units</a>
                             </li>
                             <li>
-                              
+
                         </ul>
                     </li>
 
@@ -408,9 +408,9 @@
 
         </nav>
         <!-- /. NAV SIDE  -->
-      
+
 		<div id="page-wrapper">
-		  <div class="header"> 
+		  <div class="header">
                         <h1 class="page-header">
                             Dashboard <small>Register Unit</small>
                         </h1>
@@ -418,57 +418,57 @@
 					  <li><a href="#">Home</a></li>
 					  <li><a href="#">Dashboard</a></li>
 					  <li class="active">Register_unit</li>
-					</ol> 
-									
+					</ol>
+
 		</div>
 
 
-        <div id="page-inner"> 
+        <div id="page-inner">
         <div class="row">
-        <section class="wrapper main-wrapper row">        
-          <div class="col-md-6">              
+        <section class="wrapper main-wrapper row">
+          <div class="col-md-6">
               <section class="box">
             <h3>Register Unit</h3><br>
             <br>
             @if($errors->any())
             @foreach($errors->all() as $err)
-            
+
             @endforeach
             @endif
         <form action="{{ route('units.unit') }}" method="post" class="form-inline">
         @csrf
             <div class="results">
-            
+
             @if(Session::has('fail'))
             <div class="alert alert-danger alert-dismissible " role="alert">
-           
-  
+
+
             {{ Session::get('fail') }}
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
             </div>
              </div>
-               
-                
+
+
             @endif
 
 
             @if(Session::has('success'))
             <div class="alert alert-success alert-dismissible " role="alert">
-       
-  
+
+
             {{ Session::get('success') }}
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
             </div>
              </div>
-               
-                
+
+
             @endif
-           
-      
+
+
 
 
 
@@ -486,7 +486,7 @@
                                                 while($row = mysqli_fetch_array($do)){
                                                     echo "<option value='".$row['id']."'>".$row['course_name']."</option>";
                                                 }
-                   
+
                                                 ?>
                                         </select>
                                         </div>
@@ -505,7 +505,28 @@
                                                 while($row = mysqli_fetch_array($do)){
                                                     echo "<option value='".$row['id']."'>".$row['lecturer_name']."</option>";
                                                 }
-                   
+
+                                                ?>
+                                        </select>
+                                        </div>
+
+                                    </div>
+                                                <br>
+                                                <br>
+                                    <div class="form-inline">
+                                        <div class="form-group">
+                                        <label for="exampleInputEmail1">Teaching Mode</label>
+                                        <select id="schoo" name="mode_id" class="form-control" required>
+                                        <span class="text-danger" style="color:red;">@error('mode_id') {{ $message }} @enderror</span>
+                                                <option>---Select Teaching Mode----</option>
+                                                <?php
+                                                $conn = mysqli_connect("localhost","root","","auth")or die(mysqli_error());
+                                                $query = "SELECT * FROM teaching_modes";
+                                                $do =mysqli_query($conn, $query);
+                                                while($row = mysqli_fetch_array($do)){
+                                                    echo "<option value='".$row['id']."'>".$row['mode']."</option>";
+                                                }
+
                                                 ?>
                                         </select>
                                         </div>
@@ -527,72 +548,73 @@
         </form>
         </section>
          </div>
-         <div class="col-md-6" style="background-color:#00FF22; margin-bottom:10px;">      
-               
+         <div class="col-md-6" style="background-color:#00FF22; margin-bottom:10px;">
+
               <section class="box" style="margin:10px;">
-             
+
               <input id="copy_btn" type="button" style="color:#000000; font-size:20px; background-color:aua; padding-right:20px;" class="btn btn-secondary" value="copy">
               <input id="copy_btn" type="button" style="color:#000000; font-size:20px; background-color:aua; padding-right:20px;" class="btn btn-secondary" value="CSV">
               <input id="copy_btn" type="button" style="color:#000000; font-size:20px; background-color:aua; padding-right:20px;" class="btn btn-secondary" value="PRINT">
               <input id="copy_btn" type="button" style="color:#000000; font-size:20px; background-color:aua; padding-right:20px;" class="btn btn-secondary" value="EXCEL">
               <input id="copy_btn" type="button" style="color:#000000; font-size:20px; background-color:aua; padding-right:20px;" class="btn btn-secondary" value="COLUMN VISIBILITY">
 
-         
+
 
 
                      <!--    Hover Rows  -->
                     <div class="panel panel-default" style="margin:10px;">
-                    
+
                         <div class="panel-heading">
                             View Units
                            <form action="" method="GET">
                             <div class="search-box form-inline" style="margin-left:310px; background-color:#445566; border:2.5px solid #330066;">
-                             <input type="text" style="width:200px;" class="form-control search" style="border-right:none; margin-right:0px;" placeholder="Search.."> 
+                             <input type="text" style="width:200px;" class="form-control search" style="border-right:none; margin-right:0px;" placeholder="Search..">
                              <button class="search-btn form-control" style="background-color:aqua; margin-left:0px;" type="submit"><i class="fas fa-search"></i></button>
-                            </form> 
-                            
+                            </form>
+
                             </div>
-                                    
+
                         </div>
                         <div class="results">
                         @if(Session::has('succe'))
             <div class="alert alert-danger alert-dismissible " role="alert">
-           
-  
+
+
             {{ Session::get('succe') }}
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
             </div>
              </div>
-               
-                
+
+
             @endif
             @if(Session::has('succes'))
             <div class="alert alert-success alert-dismissible " role="alert">
-            
-  
+
+
             {{ Session::get('succes') }}
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
             </div>
              </div>
-               
-                
+
+
             @endif
 
-           
+
 
                         <div class="panel-body">
                             <div class="table-responsive">
                                 <table class="table table-hover">
                                     <thead>
                                         <tr>
-                                       
+
                                             <th>#</th>
                                             <th>Course Name</th>
                                             <th>Lecturer Name</th>
+                                            <th>Mode</th>
                                             <th>Edit Session</th>
                                             <th>Delete Session</th>
                                         </tr>
@@ -601,11 +623,42 @@
                                 @foreach($units as $item)
                                         <tr>
                                             <td>{{ $item->id}}</td>
-                                            <td>{{ $item->course_id }}</td>
-                                            <td>{{ $item->lecturer_id }}</td>
+                                            <?php
+                                            $iu=  $item->course_id;
+
+                                            $query = "SELECT * FROM courses where id=$iu ";
+                                            $do =mysqli_query($conn, $query);
+                                            while($row = mysqli_fetch_array($do)){
+                                                echo '<td value="'.$row['id'].'">'.$row['course_name'].'</td>';
+                                            }
+
+                                            ?>
+
+                                            <?php
+                                            $iu=  $item->lecturer_id;
+
+                                            $query = "SELECT * FROM lecturers where id=$iu ";
+                                            $do =mysqli_query($conn, $query);
+                                            while($row = mysqli_fetch_array($do)){
+                                                echo '<td value="'.$row['id'].'">'.$row['lecturer_name'].'</td>';
+                                            }
+
+                                            ?>
+                                             <?php
+                                            $iu=  $item->mode_id;
+
+                                            $query = "SELECT * FROM teaching_modes where id=$iu ";
+                                            $do =mysqli_query($conn, $query);
+                                            while($row = mysqli_fetch_array($do)){
+                                                echo '<td value="'.$row['id'].'">'.$row['mode'].'</td>';
+                                            }
+
+                                            ?>
+
+
                                             <td><a href="#" data-toggle="modal" data-target='#exampleModal'><button class="btn btn-info"><i class="fa fa-edt" style="color:blue; font-size:27px;"></i>Edit</button></a></td>
                                             <td><a href="delete_unit/{{ $item->id }}"><button class="btn btn-danger" onclick="return confirm('Are you sure to delete?')"><i class="fa fa-remove" style="color:red; font-size:27px;"></i>Delete</button></a></td>
- 
+
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -640,11 +693,11 @@
 </div>
                                         </tr>
                                 @endforeach
-                                      
+
                                     </tbody>
                                 </table>
 
-                                
+
                             </div>
                         </div>
                     </div>
@@ -653,13 +706,13 @@
 
               </section>
         </div>
-       
+
          </div>
-          
-			
-		
-			
-        
+
+
+
+
+
             </div>
             <!-- /. PAGE INNER  -->
         </div>
@@ -671,19 +724,19 @@
     <script src="assets/js/jquery-1.10.2.js"></script>
     <!-- Bootstrap Js -->
     <script src="assets/js/bootstrap.min.js"></script>
-	 
+
     <!-- Metis Menu Js -->
     <script src="assets/js/jquery.metisMenu.js"></script>
     <!-- Morris Chart Js -->
     <script src="assets/js/morris/raphael-2.1.0.min.js"></script>
     <script src="assets/js/morris/morris.js"></script>
-	
-	
+
+
 	<script src="assets/js/easypiechart.js"></script>
 	<script src="assets/js/easypiechart-data.js"></script>
-	
+
 	 <script src="assets/js/Lightweight-Chart/jquery.chart.js"></script>
-	
+
     <!-- Custom Js -->
     <script src="assets/js/custom-scripts.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -697,49 +750,49 @@
         }
     </script>
 
-      
+
     <!-- Chart Js -->
-    <script type="text/javascript" src="assets/js/Chart.min.js"></script>  
-    <script type="text/javascript" src="assets/js/chartjs.js"></script> 
+    <script type="text/javascript" src="assets/js/Chart.min.js"></script>
+    <script type="text/javascript" src="assets/js/chartjs.js"></script>
 
     <script type="text/javascript">
      $(document).ready(function(){
 
-$(document).on("click", "#update_data", function() { 
-   
-    var id= 
+$(document).on("click", "#update_data", function() {
+
+    var id=
     $.ajax({
         url: url,
         type: "PATCH",
         cache: false,
         data:{
             _token:'{{ csrf_token() }}',
-            
+
             session_name: $('#sess_name').val(),
-          
+
         },
         success: function(dataResult){
             dataResult = JSON.parse(dataResult);
-         
-				
+
+
 			}
 	    	});
-	        }); 
+	        });
         });
-    
+
     </script>
     <script>
         var copyBtn = document.querySelector('#copy_btn');
         copyBtn.addEventListener('click', function () {
         var urlField = document.querySelector('table');
-        
+
         // create a Range object
-        var range = document.createRange();  
+        var range = document.createRange();
         // set the Node to select the "range"
         range.selectNode(urlField);
         // add the Range to the set of window selections
         window.getSelection().addRange(range);
-        
+
         // execute 'copy', can't 'cut' in this case
         document.execCommand('copy');
         }, false);
